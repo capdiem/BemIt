@@ -6,7 +6,7 @@ public class BemBase : IBem
 {
     protected List<string?> ClassNames { get; } = new();
 
-    public IBem AddClassNames(params string?[] classNames)
+    public IBem Add(params string?[] classNames)
     {
         ClassNames.AddRange(classNames);
         return this;

@@ -2,7 +2,7 @@
 
 public interface IBem
 {
-    IBem AddClassNames(params string?[] classNames);
+    IBem Add(params string?[] classNames);
 
     string Build();
 }
