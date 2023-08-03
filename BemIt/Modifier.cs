@@ -187,7 +187,7 @@ public class Modifier : BemBase
     public override string Build()
     {
         var bemCss = _modifiers.Aggregate(_blockOrElement,
-            (current, modifier) => current + Combine(_blockOrElement, modifier.Key.ToLower(), modifier.Value));
+            (current, modifier) => current + Combine(_blockOrElement, modifier.Key.ToKebab(), modifier.Value));
 
         return (bemCss + " " + string.Join(" ", ClassNames)).Trim();
     }
