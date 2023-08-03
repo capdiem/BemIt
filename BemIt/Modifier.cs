@@ -95,6 +95,19 @@ public class Modifier : BemBase
     }
 
     /// <summary>
+    /// Adds a modifier of type enum with a specific name
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public Modifier Add(Enum value, string name)
+    {
+        var modifier = FormatEnum(value, name);
+
+        return Add(modifier);
+    }
+
+    /// <summary>
     /// Adds a set of modifiers of type dictionary
     /// </summary>
     /// <param name="modifiers"></param>
@@ -171,13 +184,14 @@ public class Modifier : BemBase
     /// Formats an enum to a BEM modifier
     /// </summary>
     /// <param name="enum"></param>
+    /// <param name="inputName"></param>
     /// <returns></returns>
-    public static string FormatEnum(Enum @enum)
+    public static string FormatEnum(Enum @enum, string? inputName = null)
     {
-        var name = @enum.GetType().Name;
+        var name = inputName ?? @enum.GetType().Name;
         var value = Enum.GetName(@enum.GetType(), @enum);
 
-        return $"{name}-{value}".ToLower();
+        return $"{name}-{value}";
     }
 
     /// <summary>
