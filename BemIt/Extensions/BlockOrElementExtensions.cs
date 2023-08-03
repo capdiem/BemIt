@@ -26,9 +26,9 @@ public static class BlockOrElementExtensions
         return new Modifier(blockOrElement.Name, modifiers);
     }
 
-    public static Modifier Modifier(this IBlockOrElement blockOrElement, Enum value)
+    public static Modifier Modifier(this IBlockOrElement blockOrElement, Enum value, string? name = null)
     {
-        var modifier = BemIt.Modifier.FormatEnum(value);
+        var modifier = BemIt.Modifier.FormatEnum(value, name);
 
         return new Modifier(blockOrElement.Name, modifier);
     }
