@@ -195,7 +195,7 @@ public class Modifier : BemBase
     }
 
     /// <summary>
-    /// Builds to the css class from a modifier
+    /// Builds the css class from a modifier
     /// </summary>
     /// <returns></returns>
     public override string Build()
