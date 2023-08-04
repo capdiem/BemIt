@@ -5,8 +5,9 @@
         <Nullable>enable</Nullable>
         <Description>Helps you organize and write CSS using BEM, especially in Blazor.</Description>
         <PackageId>BemIt</PackageId>
-        <Authors>capdiem</Authors>
         <PackageProjectUrl>https://github.com/capdiem/BemIt</PackageProjectUrl>
+        <Authors>capdiem</Authors>
+        <PackageVersion>1.1.0</PackageVersion>
         <RepositoryUrl>https://github.com/capdiem/BemIt</RepositoryUrl>
         <PackageTags>blazor;css;bem;block;element;modifier;</PackageTags>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
