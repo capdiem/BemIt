@@ -10,8 +10,7 @@ public static partial class StringExtensions
 #if NET7_0_OR_GREATER
         var split = MyRegex().Split(name).Select(s => s.Trim('-'));
 #else
-        // TODO: static regex in net6.0`
-        var split = new Regex("(?<!^)(?=[A-Z])").Split(name).Select(s => s.Trim('-'));
+        var split = Regex.Split(name, "(?<!^)(?=[A-Z])").Select(s => s.Trim('-'));
 #endif
         return string.Join("-", split).ToLowerInvariant();
     }
