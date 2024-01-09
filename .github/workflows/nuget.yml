@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            6.0.x
+            7.0.x
+            8.0.x
+
       - name: Publish NuGet 2
         uses: Rebel028/publish-nuget@v2.8.0
         with:
