@@ -7,7 +7,7 @@
         <PackageId>BemIt</PackageId>
         <PackageProjectUrl>https://github.com/capdiem/BemIt</PackageProjectUrl>
         <Authors>capdiem</Authors>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
         <RepositoryUrl>https://github.com/capdiem/BemIt</RepositoryUrl>
         <PackageTags>blazor;css;bem;block;element;modifier;</PackageTags>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
