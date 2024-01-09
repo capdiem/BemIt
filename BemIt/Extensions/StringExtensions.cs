@@ -3,11 +3,20 @@ using System.Text.RegularExpressions;
 
 namespace BemIt;
 
-public static class StringExtensions
+public static partial class StringExtensions
 {
     public static string ToKebab(this string name)
     {
-        var split = new Regex("(?<!^)(?=[A-Z])").Split(name).Select(s => s.Trim('-'));
+#if NET7_0_OR_GREATER
+        var split = MyRegex().Split(name).Select(s => s.Trim('-'));
+#else
+        var split = Regex.Split(name, "(?<!^)(?=[A-Z])").Select(s => s.Trim('-'));
+#endif
         return string.Join("-", split).ToLowerInvariant();
     }
+#if NET7_0_OR_GREATER
+
+    [GeneratedRegex("(?<!^)(?=[A-Z])")]
+    private static partial Regex MyRegex();
+#endif
 }
