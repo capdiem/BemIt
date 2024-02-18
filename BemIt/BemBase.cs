@@ -14,6 +14,17 @@ public class BemBase : IBem
     }
 
     // inherits
+    public IBem AddClass(string className, bool condition)
+    {
+        if (condition)
+        {
+            ClassNames.Add(className);
+        }
+
+        return this;
+    }
+
+    // inherits
     public virtual string Build()
     {
         return string.Join(" ", ClassNames).Trim();

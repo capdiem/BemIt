@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BemIt.Extensions\BemIt.Extensions.csproj" />
       <ProjectReference Include="..\BemIt\BemIt.csproj" />
     </ItemGroup>
 

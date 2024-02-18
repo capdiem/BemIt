@@ -47,9 +47,9 @@ public class Block : BemBase, IBlockOrElement
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
-    public Element Element(string element)
+    public BemCssBuilder Element(string element)
     {
-        return new Element(Name, element);
+        return new BemCssBuilder(Name, element);
     }
 
     /// <summary>

@@ -12,7 +12,8 @@ public static partial class StringExtensions
 #else
         var split = Regex.Split(name, "(?<!^)(?=[A-Z])").Select(s => s.Trim('-'));
 #endif
-        return string.Join("-", split).ToLowerInvariant();
+        return string.Join("-", split).ToLowerInvariant()
+            .TrimStart('_'); // for private fields like _myField
     }
 #if NET7_0_OR_GREATER
 

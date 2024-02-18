@@ -1,6 +1,6 @@
 ﻿namespace BemIt.Tests;
 
-public class ElementTests
+public class BemCssBuilderTests
 {
     private readonly Block _block = new("m-list-item");
     

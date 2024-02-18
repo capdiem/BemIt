@@ -85,12 +85,14 @@ public class Modifier : BemBase
     /// <summary>
     /// Adds a modifier of type enum
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value">The value of enum</param>
+    /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value)
+    public Modifier Add(Enum value, bool apply = true)
     {
-        var modifier = FormatEnum(value);
+        if (!apply) return this;
 
+        var modifier = FormatEnum(value);
         return Add(modifier);
     }
 
@@ -99,11 +101,13 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="value"></param>
     /// <param name="name"></param>
+    /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value, string name)
+    public Modifier Add(Enum value, string name, bool apply = true)
     {
-        var modifier = FormatEnum(value, name);
+        if (!apply) return this;
 
+        var modifier = FormatEnum(value, name);
         return Add(modifier);
     }
 
@@ -178,6 +182,69 @@ public class Modifier : BemBase
             { name2, modifier2 },
             { name3, modifier3 },
         });
+    }
+
+    /// <summary>
+    /// Adds a modifier based on the specified parameters.
+    /// Only one of the parameters that's value is true will be added.
+    /// </summary>
+    /// <param name="modifier1"></param>
+    /// <param name="modifier2"></param>
+    /// <param name="name1"></param>
+    /// <param name="name2"></param>
+    /// <returns></returns>
+    public Modifier AddOneOf(bool modifier1, bool modifier2,
+        [CallerArgumentExpression("modifier1")]
+        string name1 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name2 = "")
+    {
+        if (modifier1)
+        {
+            Add(name1);
+        }
+        else if (modifier2)
+        {
+            Add(name2);
+        }
+
+        return this;
+    }
+
+    /// <summary>
+    /// Adds a modifier based on the specified parameters.
+    /// Only one of the parameters that's value is true will be added.
+    /// </summary>
+    /// <param name="modifier1"></param>
+    /// <param name="modifier2"></param>
+    /// <param name="modifier3"></param>
+    /// <param name="name1"></param>
+    /// <param name="name2"></param>
+    /// <param name="name3"></param>
+    /// <returns></returns>
+    public Modifier AddOneOf(bool modifier1, bool modifier2, bool modifier3,
+        [CallerArgumentExpression("modifier1")]
+        string name1 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name2 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name3 = ""
+    )
+    {
+        if (modifier1)
+        {
+            Add(name1);
+        }
+        else if (modifier2)
+        {
+            Add(name2);
+        }
+        else if (modifier3)
+        {
+            Add(name3);
+        }
+
+        return this;
     }
 
     /// <summary>

@@ -17,6 +17,18 @@ public class BlockTests
     }
 
     [Fact]
+    public void Extend_element()
+    {
+        Assert.Equal("m-list-item-title__intro", _block.Extend("title").Element("intro").Build());
+    }
+    
+    [Fact]
+    public void Extend_element_modifier()
+    {
+        Assert.Equal("m-list-item-title__intro m-list-item-title__intro--hoverable", _block.Extend("title").Element("intro").Modifier("hoverable").Build());
+    }
+
+    [Fact]
     public void Block_modifier_empty_ctor()
     {
         Assert.Equal("m-list-item", _block.Modifier().Build());
