@@ -6,11 +6,6 @@ namespace BemIt;
 
 public static class BlockOrElementExtensions
 {
-    public static Modifier Modifier(this IBlockOrElement blockOrElement)
-    {
-        return new Modifier(blockOrElement.Name);
-    }
-
     public static Modifier Modifier(this IBlockOrElement blockOrElement, string modifier)
     {
         return new Modifier(blockOrElement.Name, modifier);

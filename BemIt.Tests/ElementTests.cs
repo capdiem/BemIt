@@ -11,12 +11,6 @@ public class ElementTests
     }
 
     [Fact]
-    public void Block_modifier_empty_ctor()
-    {
-        Assert.Equal("m-list-item__avatar", _block.Element("avatar").Modifier().Build());
-    }
-
-    [Fact]
     public void Element_modifier()
     {
         Assert.Equal("m-list-item__avatar m-list-item__avatar--tile", _block.Element("avatar").Modifier("tile").Build());
