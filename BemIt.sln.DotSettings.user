@@ -34,8 +34,9 @@
   &lt;Project Location="F:\code\BemIt\BemIt.Tests" Presentation="&amp;lt;BemIt.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef8a8c4e_002D1ab0_002D4100_002D941d_002D1033707de375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from UnitTest1.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net7.0::xUnit::BemIt.Tests.CssProviderTests.Test1&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net7.0::xUnit::BemIt.Tests.BlockTests.Extend_element_modifier&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:BlockTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ElementTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ModifierTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
