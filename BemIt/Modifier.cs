@@ -57,7 +57,7 @@ public class Modifier : BemBase
     /// <param name="modifier"></param>
     /// <param name="condition"></param>
     /// <returns></returns>
-    public Modifier Add(string modifier, bool condition)
+    public Modifier And(string modifier, bool condition)
     {
         _modifiers.Add(modifier, condition);
 
@@ -69,9 +69,9 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="modifier"></param>
     /// <returns></returns>
-    public Modifier Add(string modifier)
+    public Modifier And(string modifier)
     {
-        return Add(modifier, true);
+        return And(modifier, true);
     }
 
     /// <summary>
@@ -80,12 +80,12 @@ public class Modifier : BemBase
     /// <param name="value">The value of enum</param>
     /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value, bool apply = true)
+    public Modifier And(Enum value, bool apply = true)
     {
         if (!apply) return this;
 
         var modifier = FormatEnum(value);
-        return Add(modifier);
+        return And(modifier);
     }
 
     /// <summary>
@@ -95,12 +95,12 @@ public class Modifier : BemBase
     /// <param name="name"></param>
     /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value, string name, bool apply = true)
+    public Modifier And(Enum value, string name, bool apply = true)
     {
         if (!apply) return this;
 
         var modifier = FormatEnum(value, name);
-        return Add(modifier);
+        return And(modifier);
     }
 
     /// <summary>
@@ -108,7 +108,7 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="modifiers"></param>
     /// <returns></returns>
-    public Modifier Add(IDictionary<string, bool> modifiers)
+    public Modifier And(IDictionary<string, bool> modifiers)
     {
         foreach (var (key, value) in modifiers)
         {
@@ -124,9 +124,9 @@ public class Modifier : BemBase
     /// <param name="modifier"></param>
     /// <param name="name"></param>
     /// <returns></returns>
-    public Modifier Add(bool modifier, [CallerArgumentExpression("modifier")] string name = "")
+    public Modifier And(bool modifier, [CallerArgumentExpression("modifier")] string name = "")
     {
-        return Add(name, modifier);
+        return And(name, modifier);
     }
 
     /// <summary>
@@ -137,13 +137,13 @@ public class Modifier : BemBase
     /// <param name="name1"></param>
     /// <param name="name2"></param>
     /// <returns></returns>
-    public Modifier Add(bool modifier1, bool modifier2,
+    public Modifier And(bool modifier1, bool modifier2,
         [CallerArgumentExpression("modifier1")]
         string name1 = "",
         [CallerArgumentExpression("modifier2")]
         string name2 = "")
     {
-        return Add(new Dictionary<string, bool>()
+        return And(new Dictionary<string, bool>()
         {
             { name1, modifier1 },
             { name2, modifier2 }
@@ -160,7 +160,7 @@ public class Modifier : BemBase
     /// <param name="name2"></param>
     /// <param name="name3"></param>
     /// <returns></returns>
-    public Modifier Add(bool modifier1, bool modifier2, bool modifier3,
+    public Modifier And(bool modifier1, bool modifier2, bool modifier3,
         [CallerArgumentExpression("modifier1")]
         string name1 = "",
         [CallerArgumentExpression("modifier2")]
@@ -168,7 +168,7 @@ public class Modifier : BemBase
         [CallerArgumentExpression("modifier3")]
         string name3 = "")
     {
-        return Add(new Dictionary<string, bool>()
+        return And(new Dictionary<string, bool>()
         {
             { name1, modifier1 },
             { name2, modifier2 },
@@ -193,11 +193,11 @@ public class Modifier : BemBase
     {
         if (modifier1)
         {
-            Add(name1);
+            And(name1);
         }
         else if (modifier2)
         {
-            Add(name2);
+            And(name2);
         }
 
         return this;
@@ -225,15 +225,15 @@ public class Modifier : BemBase
     {
         if (modifier1)
         {
-            Add(name1);
+            And(name1);
         }
         else if (modifier2)
         {
-            Add(name2);
+            And(name2);
         }
         else if (modifier3)
         {
-            Add(name3);
+            And(name3);
         }
 
         return this;
@@ -281,7 +281,7 @@ public class Modifier : BemBase
     /// <returns></returns>
     public override string Build()
     {
-        return string.Join(" ", GenerateCssClasses()).Trim();
+        return string.Join(" ", GenerateCssClasses());
     }
 
     // inherit

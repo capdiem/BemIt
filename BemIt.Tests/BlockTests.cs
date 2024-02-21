@@ -21,17 +21,12 @@ public class BlockTests
     {
         Assert.Equal("m-list-item-title__intro", _block.Extend("title").Element("intro").Build());
     }
-    
+
     [Fact]
     public void Extend_element_modifier()
     {
-        Assert.Equal("m-list-item-title__intro m-list-item-title__intro--hoverable", _block.Extend("title").Element("intro").Modifier("hoverable").Build());
-    }
-
-    [Fact]
-    public void Block_modifier_empty_ctor()
-    {
-        Assert.Equal("m-list-item", _block.Modifier().Build());
+        Assert.Equal("m-list-item-title__intro m-list-item-title__intro--hoverable",
+            _block.Extend("title").Element("intro").Modifier("hoverable").Build());
     }
 
     [Fact]
@@ -122,11 +117,13 @@ public class BlockTests
     {
         var active = true;
         var link = true;
-        Assert.Equal("m-list-item m-list-item--living m-list-item--clickable", _block.Modifier(active, link, "living", "clickable").Build());
+        Assert.Equal("m-list-item m-list-item--living m-list-item--clickable",
+            _block.Modifier(active, link, "living", "clickable").Build());
 
         var modifier1 = false;
         var modifier2 = false;
-        Assert.Equal("m-list-item", _block.Modifier(modifier1, modifier2, "custom-modifier1", "custom-modifier2").Build());
+        Assert.Equal("m-list-item",
+            _block.Modifier(modifier1, modifier2, "custom-modifier1", "custom-modifier2").Build());
     }
 
     [Fact]
@@ -135,7 +132,8 @@ public class BlockTests
         var active = false;
         var link = true;
         Assert.Equal("m-list-item m-list-item--link", _block.Modifier(active, link).Build());
-        Assert.Equal("m-list-item m-list-item--clickable", _block.Modifier(active, link, "living", "clickable").Build());
+        Assert.Equal("m-list-item m-list-item--clickable",
+            _block.Modifier(active, link, "living", "clickable").Build());
     }
 
     [Fact]
@@ -144,5 +142,24 @@ public class BlockTests
         Assert.Equal("m-list-item m-list-item--density-default", _block.Modifier(Density.Default).Build());
         Assert.Equal("m-list-item m-list-item--density-comfortable", _block.Modifier(Density.Comfortable).Build());
         Assert.Equal("m-list-item m-list-item--density-compact", _block.Modifier(Density.Compact).Build());
+    }
+
+    [Fact]
+    public void GenerateCssClasses()
+    {
+        var classes = _block.Modifier("active").And("link").GenerateCssClasses();
+        Assert.Collection(classes,
+            item => Assert.Equal("m-list-item", item),
+            item => Assert.Equal("m-list-item--active", item),
+            item => Assert.Equal("m-list-item--link", item));
+
+        var block2 = new Block("m-sheet");
+        var classes2 = classes.Concat(block2.Modifier("outlined").GenerateCssClasses());
+        Assert.Collection(classes2,
+            item => Assert.Equal("m-list-item", item),
+            item => Assert.Equal("m-list-item--active", item),
+            item => Assert.Equal("m-list-item--link", item),
+            item => Assert.Equal("m-sheet", item),
+            item => Assert.Equal("m-sheet--outlined", item));
     }
 }
