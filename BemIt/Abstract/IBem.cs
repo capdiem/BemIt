@@ -1,7 +1,14 @@
-﻿namespace BemIt;
+﻿using System.Collections.Generic;
+
+namespace BemIt;
 
 public interface IBem
 {
+    /// <summary>
+    /// The name of the block or element
+    /// </summary>
+    string Name { get; }
+
     /// <summary>
     /// Adds original class names
     /// </summary>
@@ -16,6 +23,8 @@ public interface IBem
     /// <param name="condition"></param>
     /// <returns></returns>
     IBem AddClass(string classNames, bool condition);
+
+    IEnumerable<string> BuildAsEnumerable();
 
     /// <summary>
     /// Builds the css class

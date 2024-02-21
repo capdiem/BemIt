@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BemIt", "BemIt\BemIt.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BemIt.Tests", "BemIt.Tests\BemIt.Tests.csproj", "{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BemIt.Extensions", "BemIt.Extensions\BemIt.Extensions.csproj", "{558CE6CE-EA29-4FD6-AA4B-A27C2500F3AB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{558CE6CE-EA29-4FD6-AA4B-A27C2500F3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{558CE6CE-EA29-4FD6-AA4B-A27C2500F3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{558CE6CE-EA29-4FD6-AA4B-A27C2500F3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{558CE6CE-EA29-4FD6-AA4B-A27C2500F3AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

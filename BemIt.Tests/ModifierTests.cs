@@ -7,6 +7,9 @@ public class ModifierTests
     [Fact]
     public void Modifier_one_with()
     {
+        var classes = _block.Modifier().Add("active").BuildAsEnumerable();
+        Assert.Collection(classes, item => Assert.Equal("m-list-item", item), item => Assert.Equal("m-list-item--active", item));
+        
         Assert.Equal("m-list-item m-list-item--active", _block.Modifier().Add("active").Build());
     }
 

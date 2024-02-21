@@ -10,16 +10,14 @@ namespace BemIt;
 /// </summary>
 public class Modifier : BemBase
 {
-    private readonly string _blockOrElement;
     private readonly IDictionary<string, bool> _modifiers = new Dictionary<string, bool>();
 
     /// <summary>
     /// Creates a modifier instance with a block or element
     /// </summary>
     /// <param name="blockOrElement"></param>
-    public Modifier(string blockOrElement)
+    public Modifier(string blockOrElement) : base(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
     }
 
     /// <summary>
@@ -27,10 +25,8 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="blockOrElement"></param>
     /// <param name="m"></param>
-    public Modifier(string blockOrElement, string m)
+    public Modifier(string blockOrElement, string m) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers.Add(m, true);
     }
 
@@ -40,10 +36,8 @@ public class Modifier : BemBase
     /// <param name="blockOrElement"></param>
     /// <param name="m"></param>
     /// <param name="condition"></param>
-    public Modifier(string blockOrElement, string m, bool condition)
+    public Modifier(string blockOrElement, string m, bool condition) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers.Add(m, condition);
     }
 
@@ -52,10 +46,8 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="blockOrElement"></param>
     /// <param name="modifiers"></param>
-    public Modifier(string blockOrElement, IDictionary<string, bool> modifiers)
+    public Modifier(string blockOrElement, IDictionary<string, bool> modifiers) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers = modifiers;
     }
 
@@ -261,16 +253,34 @@ public class Modifier : BemBase
         return $"{name}-{value}";
     }
 
+    public override IEnumerable<string> BuildAsEnumerable()
+    {
+        yield return Name;
+
+        foreach (var item in _modifiers)
+        {
+            var className = Combine(Name, item.Key.ToKebab(), item.Value);
+            if (string.IsNullOrWhiteSpace(className))
+            {
+                continue;
+            }
+
+            yield return className;
+        }
+
+        foreach (var className in ClassNames.Where(c => !string.IsNullOrWhiteSpace(c)))
+        {
+            yield return className!;
+        }
+    }
+
     /// <summary>
     /// Builds the css class from a modifier
     /// </summary>
     /// <returns></returns>
     public override string Build()
     {
-        var bemCss = _modifiers.Aggregate(_blockOrElement,
-            (current, modifier) => current + Combine(_blockOrElement, modifier.Key.ToKebab(), modifier.Value));
-
-        return (bemCss + " " + string.Join(" ", ClassNames)).Trim();
+        return string.Join(" ", BuildAsEnumerable()).Trim();
     }
 
     // inherit
@@ -281,6 +291,6 @@ public class Modifier : BemBase
 
     private static string Combine(string be, string modifier, bool condition)
     {
-        return condition ? $" {be}--{modifier}" : string.Empty;
+        return condition ? $"{be}--{modifier}" : string.Empty;
     }
 }

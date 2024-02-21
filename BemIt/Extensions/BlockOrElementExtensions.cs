@@ -10,7 +10,7 @@ public static class BlockOrElementExtensions
     {
         return new Modifier(blockOrElement.Name);
     }
-    
+
     public static Modifier Modifier(this IBlockOrElement blockOrElement, string modifier)
     {
         return new Modifier(blockOrElement.Name, modifier);
@@ -33,7 +33,8 @@ public static class BlockOrElementExtensions
         return new Modifier(blockOrElement.Name, modifier);
     }
 
-    public static Modifier Modifier(this IBlockOrElement blockOrElement, bool modifier, [CallerArgumentExpression("modifier")] string name = "")
+    public static Modifier Modifier(this IBlockOrElement blockOrElement, bool modifier,
+        [CallerArgumentExpression("modifier")] string name = "")
     {
         return new Modifier(blockOrElement.Name, name, modifier);
     }
