@@ -32,7 +32,8 @@ public abstract class BemBase : IBem
         return this;
     }
 
-    public virtual IEnumerable<string> BuildAsEnumerable()
+    // inherits
+    public virtual IEnumerable<string> GenerateCssClasses()
     {
         yield return Name;
 
@@ -45,7 +46,7 @@ public abstract class BemBase : IBem
     // inherits
     public virtual string Build()
     {
-        return string.Join(" ", BuildAsEnumerable());
+        return string.Join(" ", GenerateCssClasses());
     }
 
     // inherits

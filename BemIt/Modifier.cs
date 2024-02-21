@@ -253,7 +253,8 @@ public class Modifier : BemBase
         return $"{name}-{value}";
     }
 
-    public override IEnumerable<string> BuildAsEnumerable()
+    // inherits
+    public override IEnumerable<string> GenerateCssClasses()
     {
         yield return Name;
 
@@ -280,7 +281,7 @@ public class Modifier : BemBase
     /// <returns></returns>
     public override string Build()
     {
-        return string.Join(" ", BuildAsEnumerable()).Trim();
+        return string.Join(" ", GenerateCssClasses()).Trim();
     }
 
     // inherit

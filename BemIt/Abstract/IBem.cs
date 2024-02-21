@@ -19,12 +19,16 @@ public interface IBem
     /// <summary>
     /// Adds original class name if condition is true
     /// </summary>
-    /// <param name="classNames">a single or a list of class names</param>
+    /// <param name="className">a single or a list of class names</param>
     /// <param name="condition"></param>
     /// <returns></returns>
-    IBem AddClass(string classNames, bool condition);
+    IBem AddClass(string className, bool condition);
 
-    IEnumerable<string> BuildAsEnumerable();
+    /// <summary>
+    /// Generates a list of css classes
+    /// </summary>
+    /// <returns></returns>
+    IEnumerable<string> GenerateCssClasses();
 
     /// <summary>
     /// Builds the css class
