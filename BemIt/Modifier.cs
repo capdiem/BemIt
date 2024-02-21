@@ -10,16 +10,14 @@ namespace BemIt;
 /// </summary>
 public class Modifier : BemBase
 {
-    private readonly string _blockOrElement;
     private readonly IDictionary<string, bool> _modifiers = new Dictionary<string, bool>();
 
     /// <summary>
     /// Creates a modifier instance with a block or element
     /// </summary>
     /// <param name="blockOrElement"></param>
-    public Modifier(string blockOrElement)
+    public Modifier(string blockOrElement) : base(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
     }
 
     /// <summary>
@@ -27,10 +25,8 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="blockOrElement"></param>
     /// <param name="m"></param>
-    public Modifier(string blockOrElement, string m)
+    public Modifier(string blockOrElement, string m) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers.Add(m, true);
     }
 
@@ -40,10 +36,8 @@ public class Modifier : BemBase
     /// <param name="blockOrElement"></param>
     /// <param name="m"></param>
     /// <param name="condition"></param>
-    public Modifier(string blockOrElement, string m, bool condition)
+    public Modifier(string blockOrElement, string m, bool condition) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers.Add(m, condition);
     }
 
@@ -52,10 +46,8 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="blockOrElement"></param>
     /// <param name="modifiers"></param>
-    public Modifier(string blockOrElement, IDictionary<string, bool> modifiers)
+    public Modifier(string blockOrElement, IDictionary<string, bool> modifiers) : this(blockOrElement)
     {
-        _blockOrElement = blockOrElement;
-
         _modifiers = modifiers;
     }
 
@@ -85,12 +77,14 @@ public class Modifier : BemBase
     /// <summary>
     /// Adds a modifier of type enum
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value">The value of enum</param>
+    /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value)
+    public Modifier Add(Enum value, bool apply = true)
     {
-        var modifier = FormatEnum(value);
+        if (!apply) return this;
 
+        var modifier = FormatEnum(value);
         return Add(modifier);
     }
 
@@ -99,11 +93,13 @@ public class Modifier : BemBase
     /// </summary>
     /// <param name="value"></param>
     /// <param name="name"></param>
+    /// <param name="apply">Applies the modifier if <see keywork="true"/></param>
     /// <returns></returns>
-    public Modifier Add(Enum value, string name)
+    public Modifier Add(Enum value, string name, bool apply = true)
     {
-        var modifier = FormatEnum(value, name);
+        if (!apply) return this;
 
+        var modifier = FormatEnum(value, name);
         return Add(modifier);
     }
 
@@ -181,6 +177,69 @@ public class Modifier : BemBase
     }
 
     /// <summary>
+    /// Adds a modifier based on the specified parameters.
+    /// Only one of the parameters that's value is true will be added.
+    /// </summary>
+    /// <param name="modifier1"></param>
+    /// <param name="modifier2"></param>
+    /// <param name="name1"></param>
+    /// <param name="name2"></param>
+    /// <returns></returns>
+    public Modifier AddOneOf(bool modifier1, bool modifier2,
+        [CallerArgumentExpression("modifier1")]
+        string name1 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name2 = "")
+    {
+        if (modifier1)
+        {
+            Add(name1);
+        }
+        else if (modifier2)
+        {
+            Add(name2);
+        }
+
+        return this;
+    }
+
+    /// <summary>
+    /// Adds a modifier based on the specified parameters.
+    /// Only one of the parameters that's value is true will be added.
+    /// </summary>
+    /// <param name="modifier1"></param>
+    /// <param name="modifier2"></param>
+    /// <param name="modifier3"></param>
+    /// <param name="name1"></param>
+    /// <param name="name2"></param>
+    /// <param name="name3"></param>
+    /// <returns></returns>
+    public Modifier AddOneOf(bool modifier1, bool modifier2, bool modifier3,
+        [CallerArgumentExpression("modifier1")]
+        string name1 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name2 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name3 = ""
+    )
+    {
+        if (modifier1)
+        {
+            Add(name1);
+        }
+        else if (modifier2)
+        {
+            Add(name2);
+        }
+        else if (modifier3)
+        {
+            Add(name3);
+        }
+
+        return this;
+    }
+
+    /// <summary>
     /// Formats an enum to a BEM modifier
     /// </summary>
     /// <param name="enum"></param>
@@ -194,16 +253,35 @@ public class Modifier : BemBase
         return $"{name}-{value}";
     }
 
+    // inherits
+    public override IEnumerable<string> GenerateCssClasses()
+    {
+        yield return Name;
+
+        foreach (var item in _modifiers)
+        {
+            var className = Combine(Name, item.Key.ToKebab(), item.Value);
+            if (string.IsNullOrWhiteSpace(className))
+            {
+                continue;
+            }
+
+            yield return className;
+        }
+
+        foreach (var className in ClassNames.Where(c => !string.IsNullOrWhiteSpace(c)))
+        {
+            yield return className!;
+        }
+    }
+
     /// <summary>
     /// Builds the css class from a modifier
     /// </summary>
     /// <returns></returns>
     public override string Build()
     {
-        var bemCss = _modifiers.Aggregate(_blockOrElement,
-            (current, modifier) => current + Combine(_blockOrElement, modifier.Key.ToKebab(), modifier.Value));
-
-        return (bemCss + " " + string.Join(" ", ClassNames)).Trim();
+        return string.Join(" ", GenerateCssClasses()).Trim();
     }
 
     // inherit
@@ -214,6 +292,6 @@ public class Modifier : BemBase
 
     private static string Combine(string be, string modifier, bool condition)
     {
-        return condition ? $" {be}--{modifier}" : string.Empty;
+        return condition ? $"{be}--{modifier}" : string.Empty;
     }
 }

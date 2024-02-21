@@ -1,6 +1,6 @@
 ﻿namespace BemIt;
 
-public interface IBlockOrElement: IBem
+public interface IBlockOrElement
 {
     string Name { get; }
 }

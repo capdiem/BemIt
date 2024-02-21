@@ -1,9 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BemIt;
 
-public class BemBase : IBem
+public abstract class BemBase : IBem
 {
+    public string Name { get; }
+
+    protected BemBase(string blockOrElement)
+    {
+        Name = blockOrElement;
+    }
+
     protected List<string?> ClassNames { get; } = new();
 
     // inherits
@@ -14,8 +22,36 @@ public class BemBase : IBem
     }
 
     // inherits
+    public IBem AddClass(string? className, bool condition)
+    {
+        if (condition)
+        {
+            ClassNames.Add(className);
+        }
+
+        return this;
+    }
+
+    // inherits
+    public virtual IEnumerable<string> GenerateCssClasses()
+    {
+        yield return Name;
+
+        foreach (var className in ClassNames.Where(className => !string.IsNullOrWhiteSpace(className)))
+        {
+            yield return className!;
+        }
+    }
+
+    // inherits
     public virtual string Build()
     {
-        return string.Join(" ", ClassNames).Trim();
+        return string.Join(" ", GenerateCssClasses());
+    }
+
+    // inherits
+    public override string ToString()
+    {
+        return Build();
     }
 }

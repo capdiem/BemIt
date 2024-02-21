@@ -1,8 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BemIt", "BemIt\BemIt.csproj", "{DD0FDF41-698B-464E-829E-13F0AD00809E}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BemIt", "BemIt\BemIt.csproj", "{DD0FDF41-698B-464E-829E-13F0AD00809E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BemIt.Tests", "BemIt.Tests\BemIt.Tests.csproj", "{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BemIt.Tests", "BemIt.Tests\BemIt.Tests.csproj", "{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +21,11 @@ Global
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F686E4F1-1AA0-4473-B7FB-F3654B7377E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D42B177-36B3-4337-856C-0C54B0B452E0}
 	EndGlobalSection
 EndGlobal

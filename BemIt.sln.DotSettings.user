@@ -1,38 +1,42 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3938f614_002D8c5b_002D4d0c_002D9317_002Dcc628d53109f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Block" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.UnitTest1.Block&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.UnitTest1.Block&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3a528811_002D1ad3_002D4b36_002Dbd6b_002D4761f88f961e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;BemIt.Tests&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="F:\code\BemIt\BemIt.Tests" Presentation="&amp;lt;BemIt.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5b198ea2_002D635b_002D46f0_002Dbea1_002D7227609c93d5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Block_modifier_with_true_condition #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5b198ea2_002D635b_002D46f0_002Dbea1_002D7227609c93d5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Block_modifier_with_true_condition #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockTests.Block_modifier_with_true_condition&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ElementTests.Element_modifier&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockTests.ChildBlock&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ElementTests&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_with_true_condition&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_with_two_mods&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_three_withs&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_with_enum_with_one_mod&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_with_enum_with_multi&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests.Modifier_with_args_with_enum&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.BlockTests.Block_modifier_with_true_condition&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ElementTests.Element_modifier&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.BlockTests.ChildBlock&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ElementTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_with_true_condition&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_with_two_mods&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_three_withs&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_with_enum_with_one_mod&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_with_enum_with_multi&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.ModifierTests.Modifier_with_args_with_enum&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:BlockTests.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=608d3728_002Dfa3b_002D416d_002Dbccb_002D1f8d8412878b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Block_modifier_with_true_condition" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockTests.Block_modifier_with_true_condition&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockTests.Block_modifier&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.BlockTests.Block_modifier_with_true_condition&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::xUnit::BemIt.Tests.BlockTests.Block_modifier&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=638b456a_002D975f_002D4204_002D9ead_002Da67e5256e5ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;BemIt.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="F:\code\BemIt\BemIt.Tests" Presentation="&amp;lt;BemIt.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef8a8c4e_002D1ab0_002D4100_002D941d_002D1033707de375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from UnitTest1.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:UnitTest1.cs&lt;/ProjectFile&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef8a8c4e_002D1ab0_002D4100_002D941d_002D1033707de375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from UnitTest1.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:BlockTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ElementTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ModifierTests.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

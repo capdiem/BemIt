@@ -13,15 +13,9 @@ public class Block : BemBase, IBlockOrElement
     /// Creates a block
     /// </summary>
     /// <param name="name">The name of the block</param>
-    public Block(string name)
+    public Block(string name) : base(name)
     {
-        Name = name;
     }
-
-    /// <summary>
-    /// The name of the block
-    /// </summary>
-    public string Name { get; }
 
     /// <summary>
     /// Creates a block extends from current block
@@ -50,20 +44,5 @@ public class Block : BemBase, IBlockOrElement
     public Element Element(string element)
     {
         return new Element(Name, element);
-    }
-
-    /// <summary>
-    /// Builds the css class from a block
-    /// </summary>
-    /// <returns></returns>
-    public override string Build()
-    {
-        return (Name + " " + string.Join(" ", ClassNames)).Trim();
-    }
-
-    // inherit
-    public override string ToString()
-    {
-        return Build();
     }
 }
