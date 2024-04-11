@@ -273,6 +273,8 @@ public class Modifier : BemBase
         {
             yield return className!;
         }
+
+        ClassNames.Clear();
     }
 
     /// <summary>

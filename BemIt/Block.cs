@@ -37,7 +37,7 @@ public class Block : BemBase, IBlockOrElement
     }
 
     /// <summary>
-    /// Creates a element of the block
+    /// Creates an element of the block
     /// </summary>
     /// <param name="element"></param>
     /// <returns></returns>
