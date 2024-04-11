@@ -41,6 +41,8 @@ public abstract class BemBase : IBem
         {
             yield return className!;
         }
+
+        ClassNames.Clear();
     }
 
     // inherits
