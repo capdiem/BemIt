@@ -1,16 +1,23 @@
-namespace BemIt;
+﻿namespace BemIt;
 
-/// <summary>
-/// Presents a element in BEM
-/// </summary>
-public class Element : BemBase, IBlockOrElement
+public struct Element : IBlockOrElement
 {
-    /// <summary>
-    /// Creates a element
-    /// </summary>
-    /// <param name="block">From which block</param>
-    /// <param name="element">The name of the element, appended to the block name with double underscore</param>
-    public Element(string block, string element) : base($"{block}__{element}")
+    public Element(string block, string element)
     {
+        Name = $"{block}__{element}";
     }
+
+    public string Name { get; init; } = string.Empty;
+
+    public ModifierBuilder CreateModifierBuilder()
+    {
+        return new ModifierBuilder(Name);
+    }
+
+    public override string ToString()
+    {
+        return Name.ToLowerInvariant();
+    }
+
+    public static Element Empty => new();
 }

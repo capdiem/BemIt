@@ -1,7 +1,7 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace BemIt;
+namespace BemIt.Extensions;
 
 public static partial class StringExtensions
 {
