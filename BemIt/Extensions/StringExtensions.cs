@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace BemIt.Extensions;
 
-public static partial class StringExtensions
+internal static partial class StringExtensions
 {
     public static string ToKebab(this string name)
     {

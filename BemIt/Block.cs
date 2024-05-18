@@ -1,31 +1,54 @@
-﻿namespace BemIt;
+﻿using BemIt.Abstracts;
+#if NET6_0 || NET7_0
+using ArgumentException = BemIt.Extensions.ArgumentExceptionExtensions.ArgumentException;
+#endif
 
-public struct Block : IBlockOrElement
+namespace BemIt;
+
+/// <summary>
+/// Represents a BEM (Block Element Modifier) block.
+/// </summary>
+public readonly struct Block : IBlockOrElement
 {
-    public Block(string name)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Block"/> struct with the specified name.
+    /// The name is converted to lower case.
+    /// </summary>
+    /// <param name="block">The name of the block.</param>
+    public Block(string block)
     {
-        Name = name;
+        ArgumentException.ThrowIfNullOrWhiteSpace(block);
+
+        Name = block.ToLowerInvariant();
     }
 
-    public string Name { get; init; } = string.Empty;
+    /// <summary>
+    /// Gets the name of the block.
+    /// </summary>
+    public string Name { get; init; }
 
+    /// <summary>
+    /// Creates a new BEM element with the specified name, associated with this block.
+    /// </summary>
+    /// <param name="element">The name of the element.</param>
+    /// <returns>A new <see cref="Element"/> instance.</returns>
     public Element Element(string element)
     {
-        if (Name == string.Empty)
-        {
-            return BemIt.Element.Empty;
-        }
-
         return new Element(Name, element);
     }
 
+    /// <summary>
+    /// Creates a new modifier builder for this block.
+    /// </summary>
+    /// <returns>A new <see cref="ModifierBuilder"/> instance.</returns>
     public ModifierBuilder CreateModifierBuilder()
     {
         return new ModifierBuilder(Name);
     }
 
-    public override string ToString()
-    {
-        return Name.ToLowerInvariant();
-    }
+    /// <summary>
+    /// Returns a string that represents the current block.
+    /// </summary>
+    /// <returns>A string that represents the current block.</returns>
+    public override string ToString() => Name;
 }

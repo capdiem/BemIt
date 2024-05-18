@@ -31,12 +31,27 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=638b456a_002D975f_002D4204_002D9ead_002Da67e5256e5ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;BemIt.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="F:\code\BemIt\BemIt.Tests" Presentation="&amp;lt;BemIt.Tests&amp;gt;" /&gt;&#xD;
+  &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ModifierBuilderTests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef8a8c4e_002D1ab0_002D4100_002D941d_002D1033707de375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from UnitTest1.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:BlockTests.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ElementTests.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;F686E4F1-1AA0-4473-B7FB-F3654B7377E1/f:ModifierTests.cs&lt;/ProjectFile&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6e274857_002D846b_002D48b9_002D8d8d_002D3ba7231e61ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddBooleanModifier_WithTrueConditionAndSpecificName_AppendsModifier" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierBuilderTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BlockTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net8.0::BlockTests.Constructor_WithInvalidName_ThrowsArgumentException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net8.0::BlockTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::ElementTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.ModifierTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockOrElementExtensionsTests.Modifier_WithEnumAndExclude_ReturnsEmptyString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockOrElementExtensionsTests.Modifier_WithTrueCondition_ReturnsCorrectModifier&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockOrElementExtensionsTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BemIt.Tests.BlockTests.CreateModifierBuilder_WithClass_ReturnsModifierBuilderWithCorrectName&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9ae9ff00_002Db2c4_002D4f48_002D8c5a_002D00aeb6b039c2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateModifierBuilder_WithElement_ReturnsModifierBuilderWithCorrectName" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\code\own\BemIt\BemIt.Tests" Presentation="&amp;lt;BemIt.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef8a8c4e_002D1ab0_002D4100_002D941d_002D1033707de375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from UnitTest1.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F686E4F1-1AA0-4473-B7FB-F3654B7377E1::net6.0::BlockTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
