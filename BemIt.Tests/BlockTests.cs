@@ -1,26 +1,11 @@
-﻿namespace BemIt.Tests;
+﻿using Xunit.Abstractions;
+
+namespace BemIt.Tests;
 
 using BemIt;
 
 public class BlockTests
 {
-    [Fact]
-    public void Test()
-    {
-        var outlined = true;
-        var isDisabled = true;
-        var density = Density.Dense;
-
-        var cardModifierBuilder = new Block("card")
-            .CreateModifierBuilder()
-            .Add(outlined)
-            .Add("disabled", isDisabled)
-            .Add(density)
-            .AddClass("theme--light");
-        
-        Assert.Equal("card card--outlined card--disabled card--density-dense theme--light", cardModifierBuilder.ToString());
-    }
-
     enum Density
     {
         Dense,
@@ -92,5 +77,23 @@ public class BlockTests
         var block = new Block("BLOCK");
 
         Assert.Equal("block", block.ToString());
+    }
+
+    [Fact]
+    public void ComplexExample_ReturnsCorrectResult()
+    {
+        var outlined = true;
+        var isDisabled = true;
+        var density = Density.Dense;
+
+        var cardModifierBuilder = new Block("card")
+            .CreateModifierBuilder()
+            .Add(outlined)
+            .Add("disabled", isDisabled)
+            .Add(density)
+            .AddClass("theme--light");
+
+        Assert.Equal("card card--outlined card--disabled card--density-dense theme--light",
+            cardModifierBuilder.ToString());
     }
 }
