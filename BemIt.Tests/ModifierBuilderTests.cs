@@ -78,12 +78,27 @@ public class ModifierBuilderTests
     {
         // Arrange
         var builder = new ModifierBuilder("block");
+        var density = Density.Default;
 
         // Act
-        builder.Add(Density.Default);
+        builder.Add(density);
 
         // Assert
         Assert.Equal("block block--density-default", builder.ToString());
+    }
+
+    [Fact]
+    public void AddEnumModifier_WithSpecificName_AppendsModifier()
+    {
+        // Arrange
+        var builder = new ModifierBuilder("block");
+
+        var density = Density.Default;
+        // Act
+        builder.Add(density, "size");
+
+        // Assert
+        Assert.Equal("block block--size-default", builder.ToString());
     }
 
     [Fact]

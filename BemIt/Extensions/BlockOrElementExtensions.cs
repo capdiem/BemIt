@@ -1,4 +1,5 @@
-﻿using BemIt.Abstracts;
+﻿using System.Text;
+using BemIt.Abstracts;
 using BemIt.Extensions;
 
 namespace BemIt;
@@ -16,16 +17,19 @@ public static class BlockOrElementExtensions
         return condition ? new Modifier(blockOrElement.Name, modifier).ToString() : string.Empty;
     }
 
-    public static string Modifier<TEnum>(this IBlockOrElement blockOrElement, TEnum modifier)
+    public static string Modifier<TEnum>(this IBlockOrElement blockOrElement, TEnum modifier,
+        [CallerArgumentExpression("modifier")] string name = "")
         where TEnum : Enum
     {
-        var name = modifier.GetType().Name;
         var value = modifier.ToString();
 
-        return new Modifier(blockOrElement.Name, $"{name}-{value}").ToString();
+        var modifierName = string.IsNullOrWhiteSpace(name) ? value : $"{name}-{value}";
+
+        return new Modifier(blockOrElement.Name, modifierName).ToString();
     }
 
-    public static string Modifier<TEnum>(this IBlockOrElement blockOrElement, TEnum modifier, TEnum exclude)
+    public static string Modifier<TEnum>(this IBlockOrElement blockOrElement, TEnum modifier, TEnum exclude,
+        [CallerArgumentExpression("modifier")] string name = "")
         where TEnum : Enum
     {
         if (exclude.Equals(modifier))
@@ -33,10 +37,7 @@ public static class BlockOrElementExtensions
             return string.Empty;
         }
 
-        var name = modifier.GetType().Name;
-        var value = modifier.ToString();
-
-        return new Modifier(blockOrElement.Name, $"{name}-{value}").ToString();
+        return Modifier(blockOrElement, modifier, name);
     }
 
     private static string FormatName(string input)

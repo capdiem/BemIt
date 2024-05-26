@@ -21,7 +21,7 @@ public class ModifierBuilder
 
         _blockOrElement = new Block(blockOrElement);
         _stringBuilder = new StringBuilder();
-        _stringBuilder.Append(blockOrElement + " ");
+        _stringBuilder.Append(blockOrElement);
     }
 
     /// <summary>
@@ -38,7 +38,8 @@ public class ModifierBuilder
     {
         if (condition)
         {
-            _stringBuilder.Append(_blockOrElement.Modifier(modifier, condition) + " ");
+            _stringBuilder.Append(' ');
+            _stringBuilder.Append(_blockOrElement.Modifier(modifier, condition));
         }
 
         return this;
@@ -49,6 +50,7 @@ public class ModifierBuilder
     /// </summary>
     /// <typeparam name="TEnum">The type of the enum modifier.</typeparam>
     /// <param name="modifier">The enum modifier to add.</param>
+    /// <param name="name">The name of the argument that provides the modifier. This is optional, and the default value is the name of the modifier.</param>
     /// <returns>The builder with the added modifier.</returns>
     /// <remarks>
     /// This method appends the modifier to the builder if it is an enum type.
@@ -61,49 +63,11 @@ public class ModifierBuilder
     /// </code>
     /// Result: "block block--a-b"
     /// </example>
-    public ModifierBuilder Add<TEnum>(TEnum modifier) where TEnum : Enum
+    public ModifierBuilder Add<TEnum>(TEnum modifier, [CallerArgumentExpression("modifier")] string name = "")
+        where TEnum : Enum
     {
-        _stringBuilder.Append(_blockOrElement.Modifier(modifier) + " ");
-        return this;
-    }
-
-    /// <summary>
-    /// Adds a modifier to the builder, excluding a specific enum value.
-    /// </summary>
-    /// <typeparam name="TEnum">The type of the enum modifier.</typeparam>
-    /// <param name="modifier">The enum modifier to add.</param>
-    /// <param name="exclude">The enum value to exclude.</param>
-    /// <returns>The builder with the added modifier, excluding the specified value.</returns>
-    /// <remarks>
-    /// This method appends the modifier to the builder if it is an enum type, and it is not equal to the excluded value.
-    /// The modifier is appended as a string representation of the enum value.
-    /// </remarks>
-    public ModifierBuilder Add<TEnum>(TEnum modifier, TEnum exclude) where TEnum : Enum
-    {
-        if (!modifier.Equals(exclude))
-        {
-            _stringBuilder.Append(_blockOrElement.Modifier(modifier, exclude) + " ");
-        }
-
-        return this;
-    }
-
-    /// <summary>
-    /// Adds a modifier to the builder based on a boolean condition.
-    /// </summary>
-    /// <param name="modifier">The boolean condition to check.</param>
-    /// <param name="name">The name of the argument that provides the condition. This is optional, and the default value is the name of the modifier.</param>
-    /// <returns>The builder with the added modifier if the condition is true.</returns>
-    /// <remarks>
-    /// This method appends the modifier to the builder if the condition is true.
-    /// The modifier is appended as a string representation of the condition's argument name.
-    /// </remarks>
-    public ModifierBuilder Add(bool modifier, [CallerArgumentExpression("modifier")] string name = "")
-    {
-        if (modifier)
-        {
-            _stringBuilder.Append(_blockOrElement.Modifier(modifier, name) + " ");
-        }
+        _stringBuilder.Append(' ');
+        _stringBuilder.Append(_blockOrElement.Modifier(modifier, name));
 
         return this;
     }
@@ -117,23 +81,47 @@ public class ModifierBuilder
     /// This method appends each class in the provided list to the builder.
     /// Each class is appended as a string, with leading and trailing whitespace removed.
     /// </remarks>
-    public ModifierBuilder AddClass(params string[] classes)
+    public ModifierBuilder AddClass(params string?[] classes)
     {
         foreach (var item in classes)
         {
-            _stringBuilder.Append(item.Trim() + " ");
+            if (string.IsNullOrWhiteSpace(item))
+            {
+                continue;
+            }
+
+            _stringBuilder.Append(' ');
+            _stringBuilder.Append(item);
+        }
+
+        return this;
+    }
+
+    public ModifierBuilder AddClass(string? @class, bool condition = true)
+    {
+        if (condition && !string.IsNullOrWhiteSpace(@class))
+        {
+            _stringBuilder.Append(' ');
+            _stringBuilder.Append(@class);
         }
 
         return this;
     }
 
     /// <summary>
-    /// Builds the string with the added modifiers and classes.
+    /// Builds the string with the added modifiers and classes and resets the builder.
     /// </summary>
     /// <returns>The built string.</returns>
-    public string Build()
+    public string Build(bool reset = true)
     {
-        return _stringBuilder.ToString().Trim();
+        var result = _stringBuilder.ToString();
+
+        if (reset)
+        {
+            Reset();
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -143,5 +131,14 @@ public class ModifierBuilder
     public override string ToString()
     {
         return Build();
+    }
+
+    /// <summary>
+    /// Resets the builder to its initial state.
+    /// </summary>
+    private void Reset()
+    {
+        _stringBuilder.Clear();
+        _stringBuilder.Append(_blockOrElement.Name);
     }
 }
