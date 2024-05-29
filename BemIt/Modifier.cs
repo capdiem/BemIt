@@ -1,4 +1,5 @@
-﻿#if NET6_0 || NET7_0
+﻿using BemIt.Extensions;
+#if NET6_0 || NET7_0
 using ArgumentException = BemIt.Extensions.ArgumentExceptionExtensions.ArgumentException;
 #endif
 
@@ -20,7 +21,7 @@ public readonly struct Modifier
         ArgumentException.ThrowIfNullOrWhiteSpace(blockOrElement);
         ArgumentException.ThrowIfNullOrWhiteSpace(modifier);
 
-        Name = $"{blockOrElement}--{modifier}".ToLowerInvariant();
+        Name = $"{blockOrElement}--{modifier.ToKebab()}";
     }
 
     /// <summary>

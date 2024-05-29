@@ -9,7 +9,7 @@ public static class BlockOrElementExtensions
     public static string Modifier(this IBlockOrElement blockOrElement, bool modifier,
         [CallerArgumentExpression("modifier")] string name = "")
     {
-        return modifier ? new Modifier(blockOrElement.Name, FormatName(name)).ToString() : string.Empty;
+        return blockOrElement.Modifier(name, modifier);
     }
 
     public static string Modifier(this IBlockOrElement blockOrElement, string modifier, bool condition = true)
@@ -38,12 +38,5 @@ public static class BlockOrElementExtensions
         }
 
         return Modifier(blockOrElement, modifier, name);
-    }
-
-    private static string FormatName(string input)
-    {
-        var splits = input.Split('.');
-        var last = splits[^1];
-        return last.ToKebab();
     }
 }
