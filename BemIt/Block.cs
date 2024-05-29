@@ -38,6 +38,16 @@ public readonly struct Block : IBlockOrElement
     }
 
     /// <summary>
+    /// Extends the current block with the specified name.
+    /// </summary>
+    /// <param name="name">The name appended to the current block name.</param>
+    /// <returns></returns>
+    public Block Extend(string name)
+    {
+        return new Block($"{Name}-{name}");
+    }
+
+    /// <summary>
     /// Creates a new modifier builder for this block.
     /// </summary>
     /// <returns>A new <see cref="ModifierBuilder"/> instance.</returns>
