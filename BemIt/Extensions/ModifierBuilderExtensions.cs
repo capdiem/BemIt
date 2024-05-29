@@ -135,6 +135,34 @@ public static class ModifierBuilderExtensions
     }
 
     /// <summary>
+    /// Adds one of the two modifiers to the builder based on their boolean values.
+    /// </summary>
+    /// <param name="builder">The builder to add the modifier to.</param>
+    /// <param name="modifier1">The first boolean condition to check.</param>
+    /// <param name="modifier2">The second boolean condition to check.</param>
+    /// <param name="name1">The name of the argument that provides the first condition. This is optional, and the default value is the name of the first modifier.</param>
+    /// <param name="name2">The name of the argument that provides the second condition. This is optional, and the default value is the name of the second modifier.</param>
+    /// <returns>The builder with the added modifier if either of the conditions is true. If both conditions are true, the first modifier is added.</returns>
+    public static ModifierBuilder AddOneOf(this ModifierBuilder builder, bool modifier1, bool modifier2,
+        [CallerArgumentExpression("modifier1")]
+        string name1 = "",
+        [CallerArgumentExpression("modifier2")]
+        string name2 = "")
+    {
+        if (modifier1)
+        {
+            return builder.Add(name1, modifier1);
+        }
+
+        if (modifier2)
+        {
+            return builder.Add(name2, modifier2);
+        }
+
+        return builder;
+    }
+
+    /// <summary>
     /// Adds a modifier to the builder, excluding a specific enum value.
     /// </summary>
     /// <typeparam name="TEnum">The type of the enum modifier.</typeparam>
